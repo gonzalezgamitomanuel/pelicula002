@@ -1,0 +1,21 @@
+<div *ngIf="pelicula != undefined">
+	<!--  la condición devuelve lo mismo si ponemos solo "animal"-->
+	<h2>{{pelicula.nombre | uppercase}} detalles</h2>
+	<div><span>id: </span>{{pelicula.id}}</div>
+	<div>
+		<label
+      >Nombre:
+      <input [(ngModel)]="pelicula.nombre" placeholder="nombre" />
+    </label>
+		<br />
+		<label
+      >Presupuesto pelicula:
+      <input #peliculaPresupuesto [(ngModel)]="pelicula.presupuesto" placeholder="presupuesto" />
+    </label>
+	</div>
+	<br>
+	<button (click)="goBack()">Volver atras</button>
+	<br>
+	<br>
+	<button (click)="save(peliculaPresupuesto.value)">GUARDAR CAMBIOS</button>
+</div>

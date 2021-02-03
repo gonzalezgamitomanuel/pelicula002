@@ -1,0 +1,37 @@
+<h2>Peliculas</h2>
+<p>Nueva Películas</p>
+<div>
+	<label
+    >Nombre
+    <input #peliculaNombrey />
+  </label>
+	<br />
+	<br />
+	<label
+    >Presupuesto
+    <input #peliculaPresupuesto />
+  </label>
+	<br />
+	<br />
+	<!-- (click) passes input value to add() and then clears the input -->
+	<button
+    (click)="add(peliculaNombrey.value, peliculaPresupuesto.value); peliculaNombrey.value=''; peliculaPresupuesto.value=''"
+  >
+    Añadir
+  </button>
+	<br />
+	<br />
+</div>
+
+	<ul class="peliculas">
+		<li *ngFor="let pelicula of peliculas">
+			<a routerLink="/detail/{{pelicula.id}}">
+				<span class="badge">{{pelicula.id}}</span> {{pelicula.nombre}}
+				<span class="presupuesto">{{pelicula.presupuesto}}</span>
+			</a>
+			<!-- Importante el css -->
+			<button class="delete" title="delete pelicula" (click)="delete(pelicula)">
+      F
+    </button>
+		</li>
+	</ul>
